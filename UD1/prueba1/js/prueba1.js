@@ -1,13 +1,50 @@
-console.log('El valor de a es ' + a); // El valor de a es undefined
+//VARIABLES LOCALES
+			/* - Se define dentro de una función.
+			   - Tienen ámbito local en la función.
+			   - Son accesibles únicamente dentro de la función.
+			   - Podemos declarar variables con el mismo nombre en diferentes funciones.
+			   - Variable local desaparece cuando finaliza la función. */
+			   function saludar(){
+			   	var saludo = "Hola";
+			   	console.log(saludo);
+			   }
+			   saludar();
 
-console.log('El valor de b es ' + b); // El valor de b es undefined
-var b;
-// Esto puede desconcertarte hasta que leas 'Elevación de variable' a continuación
+			//VARIABLES GLOBALES
+			/* - Se definen fuera de las funciones.
+			   - Tienen ámbito global (en toda la página).
+			   - Son accesibles desde fuera y dentro de las funciones.
+			   - Variables globales desaparecen cuando se sale de la página. */
+			   var despedida = "Adios";
+			   function despedir(){
+			   	console.log (despedida);
+			   }
+			   despedir();
 
-console.log('El valor de c es ' + c); // Error de referencia no detectado: c no está definida
+			//VARIABLES AUTOMÁTICAMENTE GLOBALES
+			// - Si asignamos un valor a una variable no declarada se convierte en global.
+			function preguntar(){
+				pregunta = "¿De qué color es el caballo blanco de Santiago?";
+			}
+			preguntar();
+			console.log(pregunta);
 
-let x;
-console.log('El valor de x es ' + x); // El valor de x es undefined
+			//VARIABLES LOCALES Y GLOBALES CON EL MISMO NOMBRE
+			var miVariable = "Fuera";
+			function ambito(){
+				var miVariable = "Dentro";
+				console.log(miVariable);
+			}
+			console.log(miVariable); //Devuelve Fuera
+			ambito(); //Devuelve Dentro
+			console.log(miVariable); //Devuelve Fuera
 
-console.log('El valor de y es ' + y); // Error de referencia no detectada: y no está definida
-let y;
+			//VARIABLE GLOBAL REDEFINIDA DENTRO DE UNA FUNCIÓN
+			var miVariable2 = "Fuera";
+			function ambito2(){
+				miVariable2 = "Dentro";
+				console.log(miVariable2);
+			}
+			console.log(miVariable2); //Devuelve Fuera
+			ambito2(); //Devuelve Dentro
+			console.log(miVariable2); //Devuelve Dentro 
