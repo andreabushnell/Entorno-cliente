@@ -1,4 +1,6 @@
-function holaMundo() {
+/*function holaMundo() {
     alert("Hola Mundo");
 }
-holaMundo();
+holaMundo();*/
+
+document.write("Hola JavaScript");
