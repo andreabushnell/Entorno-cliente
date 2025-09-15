@@ -4,6 +4,7 @@
 			   - Son accesibles únicamente dentro de la función.
 			   - Podemos declarar variables con el mismo nombre en diferentes funciones.
 			   - Variable local desaparece cuando finaliza la función. */
+			   "use strict"
 			   function saludar(){
 			   	var saludo = "Hola";
 			   	console.log(saludo);
