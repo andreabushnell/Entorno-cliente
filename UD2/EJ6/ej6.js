@@ -1,4 +1,4 @@
-for (i=9; i<=21;i++){
+for (i=9; i<21;i++){
     for (j=0; j<60; j++) {
         if (j%5==0){
             if (j.toString().length>1){
@@ -8,3 +8,4 @@ for (i=9; i<=21;i++){
         }
     }
 }
+document.write("21:00");
