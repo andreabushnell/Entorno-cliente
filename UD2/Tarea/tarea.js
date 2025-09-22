@@ -18,17 +18,18 @@ while (cont1<=10) {
 
 //Tabla de dividir del 9
 let num3 = 9;
-let cont2 = 9;
+let cont2 = 1;
 document.write("<br>Tabla de dividir del 9: <br>");
 do {
     document.write(num3+" / "+cont2+" = "+(num3/cont2)+ "<br>");
-    cont2--;
-} while (cont2>0) ;
+    cont2++;
+} while (cont2<=10) ;
 
 
 //Apartado 2
 
-document.write("<br>"+(125 >> 3));
-document.write("<br>"+(40 << 2));
-document.write("<br>"+(25 >> 1));
-document.write("<br>"+(10 << 4));
+document.write("<br>Operaciones con desplazamiento de bits: ");
+document.write("<br>125 / 8 = "+(125 >> 3));
+document.write("<br>40 x 4 = "+(40 << 2));
+document.write("<br>25 / 2 = "+(25 >> 1));
+document.write("<br>10 x 16 = "+(10 << 4));
