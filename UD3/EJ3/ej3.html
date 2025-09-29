@@ -9,31 +9,9 @@
 </head>
 
 <body>
-    <h3>Escoge una opción:</h3>
-        <br>
-    <form>
-        <input id="potencia" type="radio" name="opcion" value="1">
-        <label for="potencia">Potencia</label>
-        <br>
-        
-        <input id="raiz" type="radio" name="opcion" value="2">
-        <label for="raiz">Raíz</label>
-        <br>
-        
-        <input id="redondeo" type="radio" name="opcion" value="3">
-        <label for="redondeo">Redondeo</label>
-        <br>
-        
-        <input id="trigonometria" type="radio" name="opcion" value="4">
-        <label for="trigonometria">Trigonometría</label>
-
-        <br>
-        <br>
-    </form>
-    <br>
     <h3 id="enunciado"></h3>
     <br>
-    <form>
+    <form id="form">
         <label id="lbl1" for="dato1"></label>
         <br>
         <input type="text" id="dato1">
@@ -43,7 +21,7 @@
         <input type="text" id="dato2" hidden>
         <br>
         <br>
-        <button id="responder">Responder</button>
+        <button type="submit">Responder</button>
     </form>
     <br>
     <p id="resultado1"></p><br>
