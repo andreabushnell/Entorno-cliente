@@ -4,9 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="ej9.js"></script>
+    <script src="ej9.js" defer></script>
 </head>
 <body>
-    
+    <h3>Introduce el número de tu documento: </h3>
+
+    <div id="bloque-nif" hidden>
+    <label>Número NIF: </label>
+    <input type="text" id="n-nif">
+    <br>
+    <br>
+    <button onclick="enviar_nif()">Enviar NIF</button>
+    </div>
+
+    <br>
+    <br>
+
+    <div id="bloque-nie" hidden>
+    <label>Primera letra NIE: </label>
+    <input type="text" id="l-nie"><br><br>
+    <label>Número NIE: </label>
+    <input type="text" id="n-nie">
+    <br>
+    <br>
+    <button onclick="enviar_nie()">Enviar NIE</button>
+    </div>
+
+    <br>
+    <br>
+
+    <p id="resultado"></p>
 </body>
 </html>
