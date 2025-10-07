@@ -32,4 +32,4 @@ document.write("<br>Operaciones con desplazamiento de bits: ");
 document.write("<br>125 / 8 = "+(125 >> 3));
 document.write("<br>40 x 4 = "+(40 << 2));
 document.write("<br>25 / 2 = "+(25 >> 1));
-document.write("<br>10 x 16 = "+(10 << 4));
+document.write("<br>10 x 16 = "+(10 << 4)); 
