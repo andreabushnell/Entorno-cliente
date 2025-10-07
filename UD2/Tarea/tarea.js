@@ -26,7 +26,7 @@ do {
 } while (cont2<=10) ;
 
 
-//Apartado 2
+//Apartado 2 
 
 document.write("<br>Operaciones con desplazamiento de bits: ");
 document.write("<br>125 / 8 = "+(125 >> 3));
