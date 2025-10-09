@@ -3,17 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="ej1.js" type="module"></script>
     <title>Document</title>
 </head>
 <body>
-    <button>Mostrar nº de países</button>
-    <p>Mostrar listado de países</p>
-        <!--radio 3 opciones: orden actual, inverso, alfabético-->
-    <button>Elegir orden</button>
-    <button>Añadir un país</button>
-        <!--radio 2 opciones: principio o final-->
-    <button>Borrar un país</button>
-        <!--radio 2 opciones: principio o final-->
-    <button>Consultar un país</button>
+    <button id="mostrar-n-paises">Mostrar nº de países</button>
+    <p id="n-paises"></p>
+
+
+    <p>Mostrar listado de países:</p>
+    <button id="mostrar-listado">Orden por defecto</button>
+    <button id="mostrar-listado-inverso">Orden inverso</button>
+    <button id="mostrar-orden-alfabeto">Orden alfabético</button>
+    <p id="listado-paises"></p>
+
+
+    <p>Añadir un país a la lista:</p>
+    <label></label><input type="text" id="pais-a-añadir">
+    <button id="añadir-pais-principio">Añadir al principio</button>
+    <button id="añadir-pais-final">Añadir al final</button>
+
+
+    <p>Eliminar un país de la lista:</p>
+    <label></label><input type="text" id="pais-a-eliminar">
+    <button id="eliminar-pais-principio">Eliminar al principio</button>
+    <button id="eliminar-pais-final">Eliminar al final</button>
+
+
+    <p>Consultar un país de la lista:</p>
+    <label></label><input type="text" id="nombre-o-numero">
+    <button id="consultar-pais-nombre">Consultar por nombre</button>
+    <button id="consultar-pais-posicion">Consultar por posicion</button>
+    <p id="detalle-pais"></p>
+
 </body>
 </html>
