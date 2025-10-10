@@ -5,10 +5,10 @@ function mostrarListado(listado) {
     return listado.toString();
 }
 function mostrarListadoInverso(listado) {
-    return listado.reverse().toString();
+    return listado.toReversed().toString();
 }
 function mostrarListadoAlfabetico(listado) {
-    return listado.sort().toString();
+    return listado.toSorted().toString();
 }
 function añadirPaisPrincipio(listado, nombre) {
     listado.unshift(nombre);
@@ -26,7 +26,7 @@ function mostrarPorNombre(listado, nombre) {
     return listado.indexOf(nombre);
 }
 function mostrarPorPosicion(listado, posicion) {
-    return listado[posicion - 1];
+    return listado[posicion - 1].toString();
 }
 
 export {
