@@ -33,9 +33,9 @@ document.getElementById("listar-clientes").addEventListener("click", function ()
 
 document.getElementById("escoger-localidad").addEventListener("click", function () {
     var tablaLocalidad = document.getElementById("tabla-localidad");
-    let localidad = document.getElementById("localidad");
+    let localidad = document.getElementById("localidad").value;
     clientes.forEach((element) => {
-        if ((element.localidad = localidad)) {
+        if ((element.localidad == localidad)) {
             tablaLocalidad.insertRow().insertCell().innerHTML =
                 "Nombre: " +
                 element.nombre +
@@ -46,3 +46,19 @@ document.getElementById("escoger-localidad").addEventListener("click", function 
     });
 });
 
+document.getElementById("escoger-min-cuota").addEventListener("click", function () {
+    var tablaCuota = document.getElementById("tabla-cuota");
+    let min_cuota = document.getElementById("min-cuota").value;
+    clientes.forEach((element) => {
+        if (element.cuota > min_cuota) {
+            tablaCuota.insertRow().insertCell().innerHTML = "Nombre: " +
+            element.nombre +
+            "<br>" +
+            "Localidad: " +
+            element.localidad +
+            "<br>" +
+            " Cuota: " +
+            element.cuota;
+        }
+    })
+})

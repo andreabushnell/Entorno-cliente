@@ -10,16 +10,16 @@ function mostrarListadoInverso(listado) {
 function mostrarListadoAlfabetico(listado) {
     return listado.toSorted().toString();
 }
-function añadirPaisPrincipio(listado, nombre) {
+function añadirPrincipio(listado, nombre) {
     listado.unshift(nombre);
 }
-function añadirPaisFinal(listado, nombre) {
+function añadirFinal(listado, nombre) {
     listado.push(nombre);
 }
-function eliminarPaisPrincipio(listado) {
+function eliminarPrincipio(listado) {
     listado.shift();  
 }
-function eliminarPaisFinal(listado) {
+function eliminarFinal(listado) {
     listado.pop();
 }
 function mostrarPorNombre(listado, nombre) {
@@ -34,10 +34,10 @@ export {
     mostrarListado,
     mostrarListadoInverso,
     mostrarListadoAlfabetico,
-    añadirPaisPrincipio,
-    añadirPaisFinal,
-    eliminarPaisPrincipio,
-    eliminarPaisFinal,
+    añadirPrincipio,
+    añadirFinal,
+    eliminarPrincipio,
+    eliminarFinal,
     mostrarPorNombre,
     mostrarPorPosicion,
 };

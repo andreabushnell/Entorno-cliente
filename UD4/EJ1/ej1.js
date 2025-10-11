@@ -44,26 +44,26 @@ document
     .getElementById("añadir-pais-principio")
     .addEventListener("click", function () {
         let pais = document.getElementById("pais-a-añadir").value;
-        arrays.añadirPaisPrincipio(listadoPaises, pais);
+        arrays.añadirPrincipio(listadoPaises, pais);
     });
 
 document
     .getElementById("añadir-pais-final")
     .addEventListener("click", function () {
         let pais = document.getElementById("pais-a-añadir").value;
-        arrays.añadirPaisFinal(listadoPaises, pais);
+        arrays.añadirFinal(listadoPaises, pais);
     });
 
 document
     .getElementById("eliminar-pais-principio")
     .addEventListener("click", function () {
-        arrays.eliminarPaisPrincipio(listadoPaises);
+        arrays.eliminarPrincipio(listadoPaises);
     });
 
 document
     .getElementById("eliminar-pais-final")
     .addEventListener("click", function () {
-        arrays.eliminarPaisFinal(listadoPaises);
+        arrays.eliminarFinal(listadoPaises);
     });
 
 document
