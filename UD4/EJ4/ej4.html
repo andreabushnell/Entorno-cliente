@@ -19,29 +19,44 @@
     <input type="radio" name="opciones-menu" value="mostrar-tabla">2. Mostrar tabla de discos
     <div class="mostrar-tabla" hidden>
             <input type="radio" name="opciones-orden-tabla" value="orden-normal">Orden habitual
-            <table></table>
+            <table class="orden-normal" border="1px" hidden></table>
             <input type="radio" name="opciones-orden-tabla" value="orden-inverso">Orden inverso
+            <table class="orden-inverso" border="1px" hidden></table>
             <input type="radio" name="opciones-orden-tabla" value="orden-alfabeto">Orden alfabético
+            <table class="orden-alfabeto" border="1px" hidden></table>
     </div>
 
     <input type="radio" name="opciones-menu" value="añadir-disco">3. Añadir disco
     <div class="añadir-disco" hidden>
-            Nombre del disco a añadir:
-            <label></label><input type="text" id="disco-a-añadir">
+            Nombre:
+            <label></label><input type="text" id="nombre-disco-a-añadir">
+            Autor:
+            <label></label><input type="text" id="autor-disco-a-añadir">
+            Año de publicación:
+            <label></label><input type="text" id="año-disco-a-añadir">
+            Género:
+            <label></label><input type="text" id="genero-disco-a-añadir">
+            Ubicación:
+            <label></label><input type="text" id="ubicacion-disco-a-añadir">
+            Estado de préstamo:
+            <label></label><input type="text" id="estado-prestamo-disco-a-añadir">
+            Carátula:
+            <label></label><input type="text" id="caratula-disco-a-añadir">
 
             <input type="radio" name="opciones-añadir" value="añadir-principio">Al principio
 
             <input type="radio" name="opciones-añadir" value="añadir-final">Al final
+
+            <button id="añadir">Añadir</button>
     </div>
 
     <input type="radio" name="opciones-menu" value="eliminar-disco">4. Eliminar disco
     <div class="eliminar-disco" hidden>
-            Nombre del disco a eliminar:
-            <label></label><input type="text" id="disco-a-eliminar">
-
             <input type="radio" name="opciones-eliminar" value="eliminar-principio">Al principio
 
             <input type="radio" name="opciones-eliminar" value="eliminar-final">Al final
+
+            <button id="eliminar">Eliminar</button>
     </div>
     <input type="radio" name="opciones-menu" value="consultar-disco">5. Consultar disco
     <div class="consultar-disco" hidden>

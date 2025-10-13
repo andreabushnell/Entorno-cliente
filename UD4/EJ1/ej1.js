@@ -23,21 +23,21 @@ document
     .getElementById("mostrar-listado")
     .addEventListener("click", function () {
         document.getElementById("listado-paises").innerHTML =
-            arrays.mostrarListado(listadoPaises);
+            arrays.mostrarListado(listadoPaises).toString();
     });
 
 document
     .getElementById("mostrar-listado-inverso")
     .addEventListener("click", function () {
         document.getElementById("listado-paises").innerHTML =
-            arrays.mostrarListadoInverso(listadoPaises);
+            arrays.mostrarListadoInverso(listadoPaises).toString();
     });
 
 document
     .getElementById("mostrar-orden-alfabeto")
     .addEventListener("click", function () {
         document.getElementById("listado-paises").innerHTML =
-            arrays.mostrarListadoAlfabetico(listadoPaises);
+            arrays.mostrarListadoAlfabetico(listadoPaises).toString();
     });
 
 document
@@ -71,7 +71,7 @@ document
     .addEventListener("click", function () {
         let nombre = document.getElementById("nombre-o-numero").value;
         document.getElementById("detalle-pais").innerHTML =
-            "Posición: " + (arrays.mostrarPorNombre(listadoPaises, nombre) + 1);
+            "Posición: " + (arrays.mostrarPorNombre(listadoPaises, nombre)).toString();
     });
 
 document
@@ -80,5 +80,5 @@ document
         let posicion = document.getElementById("nombre-o-numero").value;
         document.getElementById("detalle-pais").innerHTML =
             "Nombre: " +
-            arrays.mostrarPorPosicion(listadoPaises, parseInt(posicion));
+            arrays.mostrarPorPosicion(listadoPaises, parseInt(posicion)).toString();
     });

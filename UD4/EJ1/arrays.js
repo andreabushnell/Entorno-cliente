@@ -2,13 +2,13 @@ function mostrarTamano(listado) {
     return listado.length;
 }
 function mostrarListado(listado) {
-    return listado.toString();
+    return listado;
 }
 function mostrarListadoInverso(listado) {
-    return listado.toReversed().toString();
+    return listado.toReversed();
 }
 function mostrarListadoAlfabetico(listado) {
-    return listado.toSorted().toString();
+    return listado.toSorted();
 }
 function añadirPrincipio(listado, nombre) {
     listado.unshift(nombre);
@@ -23,10 +23,10 @@ function eliminarFinal(listado) {
     listado.pop();
 }
 function mostrarPorNombre(listado, nombre) {
-    return listado.indexOf(nombre);
+    return listado.indexOf(nombre)+1;
 }
 function mostrarPorPosicion(listado, posicion) {
-    return listado[posicion - 1].toString();
+    return listado[posicion - 1];
 }
 
 export {
