@@ -26,7 +26,18 @@
             <table class="orden-alfabeto" border="1px" hidden></table>
     </div>
 
-    <input type="radio" name="opciones-menu" value="añadir-disco">3. Añadir disco
+    <input type="radio" name="opciones-menu" value="mostrar-intervalo">3. Mostrar intervalo de discos por año
+    <div class="mostrar-intervalo" hidden>
+        Introduce dos años para ver los discos comprendidos entre ellos: 
+
+        <label></label><input type="number" id="min">   <label></label><input type="number" id="max">
+
+        <button id="mostrar-intervalo" type="button">Mostrar</button>
+        <p id="intervalo"></p>
+    </div>
+        
+
+    <input type="radio" name="opciones-menu" value="añadir-disco">4. Añadir disco
     <div class="añadir-disco" hidden>
             Nombre:
             <label></label><input type="text" id="nombre-disco-a-añadir">
@@ -47,26 +58,26 @@
 
             <input type="radio" name="opciones-añadir" value="añadir-final">Al final
 
-            <button id="añadir">Añadir</button>
+            <button id="añadir" type="button">Añadir</button>
     </div>
 
-    <input type="radio" name="opciones-menu" value="eliminar-disco">4. Eliminar disco
+    <input type="radio" name="opciones-menu" value="eliminar-disco">5. Eliminar disco
     <div class="eliminar-disco" hidden>
             <input type="radio" name="opciones-eliminar" value="eliminar-principio">Al principio
 
             <input type="radio" name="opciones-eliminar" value="eliminar-final">Al final
 
-            <button id="eliminar">Eliminar</button>
+            <button id="eliminar" type="button">Eliminar</button>
     </div>
-    <input type="radio" name="opciones-menu" value="consultar-disco">5. Consultar disco
+    <input type="radio" name="opciones-menu" value="consultar-disco">6. Consultar disco
     <div class="consultar-disco" hidden>
         <input type="radio" name="consulta" value="consulta-nombre">Por nombre
         <input type="radio" name="consulta" value="consulta-posicion">Por posición
         <div class="consulta-nombre" hidden>
-            <label></label><input type="text" id="nombre-disco"> <button id="consultar-nombre">Buscar</button> <label id="resultado-consulta-nombre">Está en la posición </label>
+            <label></label><input type="text" id="nombre-disco"> <button id="consultar-nombre" type="button">Buscar</button> <label id="resultado-consulta-nombre">Está en la posición </label>
         </div>
         <div class="consulta-posicion" hidden>
-            <label></label><input type="text" id="posicion-disco"> <button id="consultar-posicion">Buscar</button> <label id="resultado-consulta-posicion">En la posición está </label>
+            <label></label><input type="text" id="posicion-disco"> <button id="consultar-posicion" type="button">Buscar</button> <label id="resultado-consulta-posicion">En la posición está </label>
         </div>
     </div>
     </form>

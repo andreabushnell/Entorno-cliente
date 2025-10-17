@@ -6,8 +6,6 @@ class Disco {
         autor,
         año_publicacion,
         genero,
-        ubicacion,
-        prestado,
         caratula
     ) {
         this.nombre = nombre;
@@ -19,11 +17,11 @@ class Disco {
         this.caratula = caratula;
     }
 
-    /*set ubicacion (ubicacion) {
+   /* set ubicacion (ubicacion) {
         this.ubicacion = ubicacion;
     }*/
 
-    /*set prestado(prestado){
+   /* set prestado (prestado){
         this.prestado = prestado;
     }*/
 
@@ -37,48 +35,42 @@ class Disco {
 
     Género: ${this.genero}
 
-    Ubicación: ${this.ubicacion}
+    Carátula: ${this.caratula}  
 
-    Estado de préstamo: ${this.prestado}
-
-    Carátula: ${this.caratula}      
     `;
     }
 }
 
-let listado_discos = [
-    new Disco(
-        "Thriller",
-        "Michael Jackson",
-        1982 - 11 - 29,
-        "Pop",
-        1,
-        false,
-        "thriller-cover.png"
-    ),
-    new Disco(
-        "Back in Black",
-        "AC/DC",
-        1980 - 7 - 25,
-        "Rock",
-        2,
-        true,
-        "back_in_black-cover.jpg"
-    ),
-    new Disco(
-        "The Bodyguard",
-        "Whitney Houston",
-        1992 - 11 - 17,
-        "Pop",
-        3,
-        false,
-        "the_bodyguard-cover.png"
-    ),
-];
+
 
 let formulario = document.getElementById("formulario");
 
 formulario.addEventListener("change", function () {
+
+    let listado_discos = [
+        new Disco(
+            "Thriller",
+            "Michael Jackson",
+            1982,
+            "Pop",
+            "thriller-cover.png"
+        ),
+        new Disco(
+            "Back in Black",
+            "AC/DC",
+            1980,
+            "Rock",
+            "back_in_black-cover.jpg"
+        ),
+        new Disco(
+            "The Bodyguard",
+            "Whitney Houston",
+            1992,
+            "Pop",
+            "the_bodyguard-cover.png"
+        ),
+    ];
+
     let opciones_menu = document.getElementsByName("opciones-menu");
     opciones_menu.forEach((opcion) => {
         if (opcion.checked) {
@@ -123,6 +115,18 @@ formulario.addEventListener("change", function () {
                     });
                 } break;
 
+                case "mostrar-intervalo":{
+                    let min = document.getElementById("min").value;
+                    let max = document.getElementById("max").value;
+                    document.getElementById("mostrar-intervalo").addEventListener("click", function() {
+                        listado_discos.forEach(disco => {
+                        if(disco.año_publicacion >= min && disco.año_publicacion <= max)
+                            document.getElementById("intervalo").innerHTML += disco.mostrarInfoDisco();
+                        });
+                    });
+                    
+                } break;
+
                 case "añadir-disco": {
                     let opciones_añadir = document.getElementsByName("opciones-añadir");
 
@@ -137,8 +141,6 @@ formulario.addEventListener("change", function () {
                                         document.getElementById("autor-disco-a-añadir").value,
                                         document.getElementById("año-disco-a-añadir").value,
                                         document.getElementById("genero-disco-a-añadir").value,
-                                        parseInt(document.getElementById("ubicacion-disco-a-añadir").value),
-                                        document.getElementById("estado-prestamo-disco-a-añadir").value,
                                         document.getElementById("caratula-disco-a-añadir").value
                                         );
                                         arrays.añadirPrincipio(listado_discos, disco_a_añadir);
@@ -151,8 +153,6 @@ formulario.addEventListener("change", function () {
                                         document.getElementById("autor-disco-a-añadir").value,
                                         document.getElementById("año-disco-a-añadir").value,
                                         document.getElementById("genero-disco-a-añadir").value,
-                                        parseInt(document.getElementById("ubicacion-disco-a-añadir").value),
-                                        document.getElementById("estado-prestamo-disco-a-añadir").value,
                                         document.getElementById("caratula-disco-a-añadir").value
                                         );
                                         arrays.añadirFinal(listado_discos, disco_a_añadir);
@@ -164,7 +164,25 @@ formulario.addEventListener("change", function () {
                 } break;
 
                 case "eliminar-disco": {
-                    
+                    let opciones_eliminar = document.getElementsByName("opciones-eliminar");
+
+                    opciones_eliminar.forEach((opcion) => {
+                        if (opcion.checked) {
+                            
+                            switch (opcion.value) {
+                                case "eliminar-principio": {
+                                    document.getElementById("eliminar").addEventListener("click", function () {
+                                        arrays.eliminarPrincipio(listado_discos);
+                                    });
+                                } break;
+                                case "eliminar-final": {
+                                    document.getElementById("eliminar").addEventListener("click", function () {
+                                        arrays.eliminarFinal(listado_discos);
+                                    });
+                                } break;
+                            }
+                        } 
+                    });
                 } break;
                 case "consultar-disco": {
 
