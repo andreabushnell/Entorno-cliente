@@ -17,6 +17,7 @@ let clientes = [
 ];
 
 document.getElementById("listar-clientes").addEventListener("click", function () {
+    document.getElementById("tabla-clientes").innerHTML = "";
     var tablaClientes = document.getElementById("tabla-clientes");
     clientes.forEach((element) => {
         tablaClientes.insertRow().insertCell().innerHTML =
@@ -29,9 +30,10 @@ document.getElementById("listar-clientes").addEventListener("click", function ()
             " Cuota: " +
             element.cuota;
     });
-})
+});
 
 document.getElementById("escoger-localidad").addEventListener("click", function () {
+    document.getElementById("tabla-localidad").innerHTML = "";
     var tablaLocalidad = document.getElementById("tabla-localidad");
     let localidad = document.getElementById("localidad").value;
     clientes.forEach((element) => {
@@ -47,6 +49,7 @@ document.getElementById("escoger-localidad").addEventListener("click", function 
 });
 
 document.getElementById("escoger-min-cuota").addEventListener("click", function () {
+    document.getElementById("tabla-cuota").innerHTML = "";
     var tablaCuota = document.getElementById("tabla-cuota");
     let min_cuota = document.getElementById("min-cuota").value;
     clientes.forEach((element) => {
@@ -59,6 +62,6 @@ document.getElementById("escoger-min-cuota").addEventListener("click", function 
             "<br>" +
             " Cuota: " +
             element.cuota;
-        }
-    })
-})
+        } 
+    });
+});

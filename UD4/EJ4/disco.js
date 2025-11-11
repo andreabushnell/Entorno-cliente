@@ -1,12 +1,7 @@
 import * as arrays from "../EJ1/arrays.js";
 
 class Disco {
-    constructor(
-        nombre,
-        autor,
-        año_publicacion,
-        genero
-    ) {
+    constructor(nombre, autor, año_publicacion, genero) {
         this.nombre = nombre;
         this.autor = autor;
         this.año_publicacion = año_publicacion;
