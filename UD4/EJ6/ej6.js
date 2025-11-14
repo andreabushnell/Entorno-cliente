@@ -1,11 +1,17 @@
 const convocatorias = [];
 
+let contador = 0;
 document.getElementById("añadir-cadena").addEventListener("click", function () {
     let cadena = document.getElementById("cadena").value;
-    let contador = 0;
-    convocatorias.push (cadena.split(","));
-    convocatorias.sort();
-    
 
+    convocatorias.push(cadena.split(","));
+
+    const convocadosEnTodos = convocatorias.reduce(
+        (interseccion, listaActual) => {
+            return interseccion.filter((nombre) =>
+                listaActual.includes(nombre)
+            );
+        }
+    );
+    document.getElementById("resultado").innerHTML = convocadosEnTodos;
 });
-console.log(convocatorias);

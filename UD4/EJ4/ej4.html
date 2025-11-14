@@ -6,33 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="disco.js" type="module"></script>
     <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+    </style>
 </head>
 
 <body>
+    <ol>
+        <li>Mostrar número de discos</li>
+        <button id="mostrar-nDiscos">Mostrar</button>
+        <p id="mensaje-num-discos"></p>
 
-    <form id="intervalo">
-        <p>3. Mostrar intervalo</p>
-        Año inicial: <input type="text"/>
-        Año final: <input type="text"/>
+        <li>Mostrar tabla de discos</li>
+        <input type="radio" name="orden" id="en-orden"> En orden
+        <input type="radio" name="orden" id="inverso"> En orden inverso
+        <input type="radio" name="orden" id="alfabetico"> En orden alfabético
+        <button id="mostrar-tablaDiscos">Mostrar</button>
+        <table hidden id="tabla-discos"></table>
+
+        <li>Mostrar discos por año</li>
+            Introduce un intervalo de años (formato fecha-fin): <input type="text" id="intervalo">
+            <button id="mostrar-intervalo">Mostrar</button>
+            <p id="mensaje-mostrar-intervalo"></p>
         
-    </form>
-    <form id="añadir">
-        <p>4. Añadir disco</p>
-        Título: <input type="text" id="titulo"/><br><br>
-        Autor: <input type="text" id="autor"/><br><br>
-        Año: <input type="text" id="año"/><br><br>
-        Género: <input type="text" id="genero"/><br><br>
-        <input type="button" value="Añadir al principio"/> <input type="button" value="Añadir al final"/>
-    </form>
-    <div id="eliminar">
-        <p>5. Eliminar disco</p>
-        <input type="button" value="Eliminar al principio"/> <input type="button" value="Eliminar al final"/>
-    </div>
-    <form id="consultar">
-        <p>6. Consultar disco</p>
-        <input type="text" id="consulta"/>
-        <input type="button" value="Consultar nombre"/> <input type="button" value="Consultar posicion"/>
-    </form>
+
+        <li>Añadir un disco</li>
+            Nombre: <input type="text" id="nombre-disco"><br>
+            Artista: <input type="text" id="artista-disco"><br>
+            Año: <input type="text" id="año-disco"><br>
+            Género: <input type="text" id="genero-disco"><br>
+            <button id="añadir-principio">Al principio</button>
+            <button id="añadir-final">Al final</button>
+            <p id="mensaje-adicion"></p>
+
+        <li>Eliminar un disco</li>
+        <button id="eliminar-principio">Al principio</button>
+        <button id="eliminar-final">Al final</button>
+        <p id="mensaje-eliminacion"></p>
+        <li>Consultar un disco</li>
+        <input type="text" id="posicion"><button id="consultar-posicion">Por posicion</button><br>
+        <input type="text" id="nombre"><button id="consultar-nombre">Por nombre</button>
+        <p id="mensaje-consulta"></p>
+    </ol>
 </body>
 
 </html>
