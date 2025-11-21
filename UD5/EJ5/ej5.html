@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+    <script src="./ej5.js" defer></script>
+</head>
+<body>
+    <h2>Introduce la información del disco: </h2>
+    <form id="formulario">
+        <label for="nombre">Nombre: </label>
+        <input type="text" name="nombre" id="inputNombre" />
+<br><br>
+        <label for="artista">Artista: </label>
+        <input type="text" name="artista" id="inputArtista" />
+<br><br>
+        <label for="año">Año de publicación: </label>
+        <input type="text" name="año" id="inputAño" />
+<br><br>
+        <label for="generos">Género: </label>
+        
+        <select name="generos" id="inputGenero" >
+            <option value="rock">Rock</option>
+            <option value="pop">Pop</option>
+            <option value="punk">Punk</option>
+            <option value="indie">Indie</option>
+        </select>
+<br><br>
+        <input type="submit" value="Enviar" />
+    </form>
+    <p id="mensaje"></p>
+</body>
+</html>
