@@ -29,7 +29,7 @@ enviar.addEventListener("click", () => {
     let artista = document.getElementById("inputArtista");
     let año = document.getElementById("inputAño");
 
-    validarNombreYArtista(nombre)
-    validarNombreYArtista(artista)
-    validarAño(año)
+    validarNombreYArtista(nombre);
+    validarNombreYArtista(artista);
+    validarAño(año);
 });

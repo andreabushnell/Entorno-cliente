@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 9</title>
+    <script src="ej9.js" defer></script>
+    <style>
+        div {
+            margin: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="formulario">
+        <div>
+            <h1>Crear cuenta</h1>
+            <p>Todos los campos son obligatorios</p>
+        </div>
+        <div>
+            <label>Nombre</label>
+            <input type="text" id="nombre">
+        </div>
+        <div>
+            <label>Número de móvil o dirección de correo electrónico</label>
+            <input type="text" id="contacto">
+        </div>
+        <div> <label>Contraseña</label>
+            <input type="password" id="contraseña">
+        </div>
+        <div>
+            <label>Confirma tu contraseña</label>
+            <input type="password" id="recontraseña">
+        </div>
+
+        <div>
+            <input type="submit" value="Continuar">
+        </div>
+
+        <p id="mensaje"></p>
+    </form>
+</body>
+
+</html>
