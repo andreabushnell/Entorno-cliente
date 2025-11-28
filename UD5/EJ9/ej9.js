@@ -1,3 +1,22 @@
+function pintarBienvenida() {
+    document.getElementById("formulario").style.display = "none";
+    document.getElementById("bienvenida").style.display = "block";
+    document.getElementById(
+        "bienvenida"
+    ).innerHTML = `Bienvenido a Amazon, ${localStorage.getItem("nombre")}`;
+}
+function pintarIniciarSesion() {
+    document.getElementById("nombre").innerHTML =
+        localStorage.getItem("nombre");
+
+    document.getElementById("contacto").innerHTML =
+        localStorage.getItem("contacto");
+
+    document.getElementById("recontraseña").style.display = "none";
+    document.getElementById("label-recontraseña").style.display = "none";
+    document.getElementById("titulo").innerHTML = "Iniciar sesión";
+}
+
 function validarFormulario() {
     let cadenaErrores = "";
 
@@ -21,7 +40,7 @@ function validarFormulario() {
     }
 
     if (cadenaErrores == "") {
-        let datos = [nombre, contacto, contraseña];
+        let datos = [nombre, contacto];
         return datos;
     } else {
         document.getElementById("mensaje").innerHTML = cadenaErrores;
@@ -32,24 +51,28 @@ document.getElementById("formulario").addEventListener("submit", function (e) {
     e.preventDefault();
 
     let datos = validarFormulario();
-
-    if (!localStorage.getItem("nombre")) {
-        localStorage.setItem("nombre", datos[0]);
-    } else {
-        document.getElementById("nombre").innerHTML =
-            localStorage.getItem("nombre");
+    if (typeof datos !== "undefined") {
+        if (!localStorage.getItem("nombre")) {
+            localStorage.setItem("nombre", datos[0]);
+        }
+        if (!localStorage.getItem("contacto")) {
+            localStorage.setItem("contacto", datos[1]);
+        }
+        pintarBienvenida();
     }
-    if (!localStorage.getItem("contacto")) {
-        localStorage.setItem("contacto", datos[1]);
-    } else {
-        document.getElementById("contacto").innerHTML =
-            localStorage.getItem("contacto");
-    }
-    if (!localStorage.getItem("contraseña")) {
-        localStorage.setItem("contraseña", datos[2]);
-    } else {
-        document.getElementById("contraseña").innerHTML =
-            localStorage.getItem("contraseña");
-    }
-    
 });
+
+document.getElementById("salir").addEventListener("click", () => {
+    localStorage.removeItem("nombre");
+    localStorage.removeItem("contacto");
+    localStorage.removeItem("contraseña");
+
+    document.getElementById("salir").style.display = "none";
+});
+
+if (
+    localStorage.getItem("nombre") != null &&
+    localStorage.getItem("contacto") != null
+) {
+    pintarIniciarSesion();
+}

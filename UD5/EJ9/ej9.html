@@ -16,7 +16,7 @@
 <body>
     <form id="formulario">
         <div>
-            <h1>Crear cuenta</h1>
+            <h1 id="titulo">Crear cuenta</h1>
             <p>Todos los campos son obligatorios</p>
         </div>
         <div>
@@ -31,16 +31,18 @@
             <input type="password" id="contraseña">
         </div>
         <div>
-            <label>Confirma tu contraseña</label>
+            <label id="label-recontraseña">Confirma tu contraseña</label>
             <input type="password" id="recontraseña">
         </div>
 
         <div>
             <input type="submit" value="Continuar">
         </div>
+        <button hidden id="salir">Salir</button>
 
         <p id="mensaje"></p>
     </form>
+    <h2 hidden id="bienvenida"></h2>
 </body>
 
 </html>
