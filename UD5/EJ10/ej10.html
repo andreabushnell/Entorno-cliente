@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10</title>
+    <script src="ej10.js" defer></script>
+    <style>
+        .pag-bienvenida{
+            display:grid;
+            grid-template-columns: repeat(1, 2fr);
+            grid-template-areas: 
+            "a"
+            "b";
+
+        }
+        h2{
+            grid-area: a;
+        }
+        form{
+            grid-area: b;
+        }
+        input{
+            width: 150px;
+            border-radius: 5px;
+        }
+
+        .pag-clave table,td{
+            border: 1px solid darkblue;
+            border-collapse: collapse;
+        }
+        .pag-clave{
+            display: grid;
+            grid-template-columns: repeat(1, 2fr);
+            grid-template-areas: 
+            "a" 
+            "b"
+            "c";
+        }
+        h2.pag-clave{
+            grid-area: a;
+        }
+        #pin{
+            margin-left: 50px;
+            margin-right: 50px;
+            grid-area: b;
+            td{
+                height: 50px;
+            }
+        }
+        #pin-pad{
+            margin-top: 10px;
+            margin-left: 50px;
+            margin-right: 50px;
+            grid-area: c;
+            td{
+                height: 50px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="pag-bienvenida">
+        <h2>Accede a tu Área Clientes</h2>
+        <form id="formulario">
+            <p>Elige tu documento</p>
+            DNI o Tarjeta de residencia
+            <input type="radio" name="documento" id="dni">
+            Pasaporte
+            <input type="radio" name="documento" id="pasaporte">
+            <p>Número de documento</p>
+            <input type="text" id="num-doc">
+            <p>Fecha de nacimiento</p>
+            <input type="text" id="fec-nac">
+            <input type="checkbox" id="recordar">
+            <input type="submit" value="Entrar">
+        </form>
+        
+    </div>
+    <div class="pag-clave" hidden>
+        <h2>Clave de seguridad</h2>
+        <table id="pin">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <table id="pin-pad">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
