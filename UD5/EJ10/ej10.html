@@ -1,82 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 10</title>
     <script src="ej10.js" defer></script>
     <style>
-        .pag-bienvenida{
-            display:grid;
-            grid-template-columns: repeat(1, 2fr);
-            grid-template-areas: 
-            "a"
-            "b";
-
-        }
-        h2{
-            grid-area: a;
-        }
-        form{
-            grid-area: b;
-        }
-        input{
-            width: 150px;
-            border-radius: 5px;
+        * {
+            box-sizing: border-box;
         }
 
-        .pag-clave table,td{
+        .pag-clave table,
+        td {
             border: 1px solid darkblue;
             border-collapse: collapse;
         }
-        .pag-clave{
+
+        .pag-clave {
             display: grid;
-            grid-template-columns: repeat(1, 2fr);
-            grid-template-areas: 
-            "a" 
-            "b"
-            "c";
+            grid-template-columns: repeat(1, 3fr);
+            grid-template-areas:
+                "a"
+                "b"
+                "c";
         }
-        h2.pag-clave{
+
+        h2.pag-clave {
             grid-area: a;
         }
-        #pin{
+
+        #pin {
             margin-left: 50px;
             margin-right: 50px;
             grid-area: b;
-            td{
+
+            td {
                 height: 50px;
             }
         }
-        #pin-pad{
+
+        #pin-pad {
             margin-top: 10px;
             margin-left: 50px;
             margin-right: 50px;
             grid-area: c;
-            td{
+
+            td {
                 height: 50px;
             }
         }
-
     </style>
 </head>
+
 <body>
     <div class="pag-bienvenida">
         <h2>Accede a tu Área Clientes</h2>
         <form id="formulario">
-            <p>Elige tu documento</p>
-            DNI o Tarjeta de residencia
-            <input type="radio" name="documento" id="dni">
-            Pasaporte
-            <input type="radio" name="documento" id="pasaporte">
-            <p>Número de documento</p>
-            <input type="text" id="num-doc">
-            <p>Fecha de nacimiento</p>
-            <input type="text" id="fec-nac">
-            <input type="checkbox" id="recordar">
-            <input type="submit" value="Entrar">
+            <p style="grid-area: 1;">Elige tu documento</p>
+
+            <div style="grid-area: 2;">
+                <input type="radio" name="documento" id="dni">
+                <label for="dni">DNI o Tarjeta de residencia</label>
+            </div>
+
+            <div style="grid-area: 3;">
+                <input type="radio" name="documento" id="pasaporte">
+                <label for="pasaporte">Pasaporte</label>
+            </div>
+
+            <div style="grid-area: 4;">
+                <p>Número de documento</p>
+                <input type="text" id="num-doc">
+            </div>
+
+            <div style="grid-area: 5;">
+                <p>Fecha de nacimiento</p>
+                <input type="text" id="fec-nac">
+            </div>
+
+            <div style="grid-area: 6;">
+<input type="checkbox" id="recordar">
+<label for="recordar">Recordar</label>
+            </div>
+            
+
+            <input style="grid-area: 7;" type="submit" value="Entrar">
         </form>
-        
+
     </div>
     <div class="pag-clave" hidden>
         <h2>Clave de seguridad</h2>
@@ -88,26 +99,25 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td></td>
             </tr>
         </table>
         <table id="pin-pad">
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="pp1"></td>
+                <td id="pp2"></td>
+                <td id="pp3"></td>
+                <td id="pp4"></td>
+                <td id="pp5"></td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="pp6"></td>
+                <td id="pp7"></td>
+                <td id="pp8"></td>
+                <td id="pp9"></td>
+                <td id="pp10"></td>
             </tr>
         </table>
     </div>
 </body>
+
 </html>

@@ -43,6 +43,11 @@ document.getElementById('formulario').addEventListener('submit', (e) =>{
                 contador--;
             }
         }
+        let tabla = document.getElementById('pin-pad');
+        for (let i=0; i<5; i++){
+            tabla.
+        }+
+
         //insert rNums values into table
 
     } else {
