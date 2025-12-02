@@ -6,52 +6,88 @@ class Cliente {
     }
 }
 
-let clientes = [new Cliente("12673909B", "09-02-1987", 42563447), new Cliente("25464880L", "01-15-1990", 15426699), new Cliente ("77060031K", "04-07-1974", 78554312)];
+let clientes = [
+    new Cliente("12673909B", "09-02-1987", 42563447),
+    new Cliente("25464880L", "01-15-1990", 15426699),
+    new Cliente("77060031K", "04-07-1974", 78554312),
+];
 
+document.getElementById("continuar").addEventListener("click", () => {
+    let documento = document.getElementById("num-doc").value;
+    let fechaNac = document.getElementById("fec-nac").value;
+    let recordar = document.getElementById("recordar");
+    let guardarDatos = false;
 
-
-document.getElementById('formulario').addEventListener('submit', (e) =>{
-    e.preventDefault();
-
-    let documento = document.getElementById('num-doc');
-    let fechaNac = document.getElementById('fec-nac');
-
-    if (document.getElementById('recordar').checked){
-        let recordar = true;
+    if (recordar.checked) {
+        guardarDatos = true;
     } else {
-        let recordar = false;
+        guardarDatos = false;
     }
 
-    let encontrado = clientes.foreach((cliente) =>{
-        return cliente.documento==documento && cliente.fechaNac==fechaNac;
+    console.log("Documento: " + documento);
+    console.log("Fecha nacimiento: " + fechaNac);
+    console.log("Guardar datos: " + guardarDatos);
+
+    let encontrado = false;
+    clientes.forEach((cliente) => {
+        if (cliente.documento == documento && cliente.fechaNac == fechaNac)
+            encontrado = true;
     });
 
-    if(encontrado){
-        if(recordar){
-            localStorage.setItem("documento",documento);
-            localStorage.setItem("fechaNac",fechaNac);
+    console.log("Encontrado: " + encontrado);
+    if (encontrado) {
+        if (guardarDatos) {
+            localStorage.setItem("documento", documento);
+            localStorage.setItem("fechaNac", fechaNac);
         }
-        document.getElementsByClassName("pag-bienvenida").style.display = 'none';
-        document.getElementsByClassName('pag-clave').style.display = 'block';
+        document.getElementById("pag-bienvenida").style.display = "none";
+        document.getElementById("pag-clave").style.display = "block";
 
-        let rNums = [];
-        let contador = 10;
-        while (contador>0){
-            let n = Math.random(0,9);
-            if(!rNums.includes(n)){
-                rNums.push(n);
-                contador--;
+        //Insertar 3 números únicos entre 0 y 5
+        let rNumsPin = [];
+        let contadorPin = 3;
+        while (contadorPin > 0) {
+            let n = Math.floor(Math.random() * 6);
+            if (!rNumsPin.includes(n)) {
+                rNumsPin.push(n);
+                contadorPin--;
             }
         }
-        let tabla = document.getElementById('pin-pad');
-        for (let i=0; i<5; i++){
-            tabla.
-        }+
 
-        //insert rNums values into table
+        let tablaPin = document.getElementById("pin");
+        let fila1Pin = tablaPin.insertRow(0);
+        for (let i = 0; i < 6; i++) {
+            let celda = fila1Pin.insertCell();
+            if (i == rNumsPin[0] || i == rNumsPin[1] || i == rNumsPin[2]) {
+                celda.textContent = "*";
+            }
+        }
 
+        let rNumsPinPad = [];
+        let contadorPinPad = 10;
+        while (contadorPinPad > 0) {
+            let n = Math.floor(Math.random() * 10);
+            if (!rNumsPinPad.includes(n)) {
+                rNumsPinPad.push(n);
+                contadorPinPad--;
+            }
+        }
+
+        let tablaPinPad = document.getElementById("pin-pad");
+        let fila1PinPad = tablaPinPad.insertRow(0);
+        let fila2PinPad = tablaPinPad.insertRow(1);
+        for (let i = 0; i < 10; i++) {
+            if (i >= 0 && i < 5) {
+                let celda = fila1PinPad.insertCell();
+                celda.textContent = rNumsPinPad[i];
+            } else {
+                let celda = fila2PinPad.insertCell();
+                celda.textContent = rNumsPinPad[i];
+            }
+        }
     } else {
-        //display user not found
+        let mensajeError = document.getElementById("mensaje-error");
+        mensajeError.style.display = "block";
+        mensajeError.innerHTML = "Usuario no encontrado";
     }
-
-})
+});
