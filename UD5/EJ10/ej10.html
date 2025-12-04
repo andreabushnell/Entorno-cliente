@@ -7,48 +7,61 @@
     <title>Ejercicio 10</title>
     <script src="ej10.js" defer></script>
     <style>
-        * {
-            box-sizing: border-box;
+        :root{
+            margin: 0;
+            padding: 0;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         }
+        #pag-bienvenida{
+            display: grid;
+            justify-self: center;
 
-        #pag-clave table,
-        td {
-            border: 1px solid darkblue;
+            background-color: rgba(108, 232, 137, 0.2);
+            border: 2px solid green;
+            padding: 10px;
+        }
+        div{
+            margin-top: 15px;
+        }
+        div:has(input){
+            margin: 0;
+        }
+        div:has(input[type=checkbox]){
+            margin-top: 15px;
+        }
+        button{
+            background-color: rgb(44, 131, 64);
+            color: white;
+            border: 1px solid white;
+            border-radius: 10px;
+        }
+        
+        #pag-clave{
+            display: grid;
+            justify-self: center;
+            width: 50%;
+
+            background-color: rgba(108, 232, 137, 0.2);
+            border: 2px solid green;
+            padding: 10px;
+        }
+        table, td{
+            border: 2px solid green;
             border-collapse: collapse;
         }
-
-        #pag-clave {
-            display: grid;
-            grid-template-columns: repeat(1, 3fr);
-            grid-template-areas:
-                "a"
-                "b"
-                "c";
+        table{
+            table-layout: fixed;
+            width: 100%;
         }
-
-        #pag-clave  h2{
-            grid-area: a;
+        td{
+            height: 75px;
+            width: 30px;
         }
-
-        #pin {
-            margin-left: 50px;
-            margin-right: 50px;
-            grid-area: b;
-
-            td {
-                height: 50px;
-            }
-        }
-
-        #pin-pad {
-            margin-top: 10px;
-            margin-left: 50px;
-            margin-right: 50px;
-            grid-area: c;
-
-            td {
-                height: 50px;
-            }
+        #pin, #pin-pad{
+            margin-bottom: 10px;
+            margin-top: 40px;
+            text-align: center;
+            color:blueviolet;
         }
     </style>
 </head>
@@ -56,45 +69,54 @@
 <body>
     <div id="pag-bienvenida">
         <h2>Accede a tu Área Clientes</h2>
-        <p style="grid-area: 1;">Elige tu documento</p>
+        <p>Elige tu documento</p>
 
-        <div style="grid-area: 2;">
+        <div>
             <input type="radio" name="documento" id="dni">
             <label for="dni">DNI o Tarjeta de residencia</label>
         </div>
 
-        <div style="grid-area: 3;">
+        <div>
             <input type="radio" name="documento" id="pasaporte">
             <label for="pasaporte">Pasaporte</label>
         </div>
 
-        <div style="grid-area: 4;">
+        <div>
             <p>Número de documento</p>
             <input type="text" id="num-doc">
         </div>
 
-        <div style="grid-area: 5;">
+        <div>
             <p>Fecha de nacimiento</p>
             <input type="text" id="fec-nac">
         </div>
 
-        <div style="grid-area: 6;">
+        <div>
             <input type="checkbox" id="recordar">
             <label for="recordar">Recordar</label>
         </div>
 
-        <button style="grid-area: 7;" id="continuar">Entrar</button>
+        <div>
+            <button id="continuar">Entrar</button>
+        </div>
+        
 
         <p id="mensaje-error" hidden></p>
 
     </div>
-    <div id="pag-clave" hidden>
+
+    <div id="pag-clave">
+
         <h2>Clave de seguridad</h2>
+        <p>Completa las posiciones que faltan de tu clave de seguridad:</p>
         <table id="pin">
         </table>
+
         <table id="pin-pad">
         </table>
+
     </div>
+
 </body>
 
 </html>

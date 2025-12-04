@@ -1,3 +1,18 @@
+let pagBienvenida = document.getElementById("pag-bienvenida");
+let pagPin = document.getElementById("pag-clave");
+
+pagBienvenida.style.display = "block";
+pagPin.style.display = "none";
+
+if (
+    localStorage.getItem("documento") != "" &&
+    localStorage.getItem("fechaNac") != ""
+) {
+    document.getElementById("num-doc").value =
+        localStorage.getItem("documento");
+    document.getElementById("fec-nac").value = localStorage.getItem("fechaNac");
+}
+
 class Cliente {
     constructor(documento, fechaNac, clave) {
         this.documento = documento;
@@ -7,9 +22,9 @@ class Cliente {
 }
 
 let clientes = [
-    new Cliente("12673909B", "09-02-1987", 42563447),
-    new Cliente("25464880L", "01-15-1990", 15426699),
-    new Cliente("77060031K", "04-07-1974", 78554312),
+    new Cliente("12673909B", "09-02-1987", 425634),
+    new Cliente("25464880L", "01-15-1990", 154266),
+    new Cliente("77060031K", "04-07-1974", 785543),
 ];
 
 document.getElementById("continuar").addEventListener("click", () => {
@@ -17,6 +32,7 @@ document.getElementById("continuar").addEventListener("click", () => {
     let fechaNac = document.getElementById("fec-nac").value;
     let recordar = document.getElementById("recordar");
     let guardarDatos = false;
+    let clienteActual = "";
 
     if (recordar.checked) {
         guardarDatos = true;
@@ -30,8 +46,10 @@ document.getElementById("continuar").addEventListener("click", () => {
 
     let encontrado = false;
     clientes.forEach((cliente) => {
-        if (cliente.documento == documento && cliente.fechaNac == fechaNac)
+        if (cliente.documento == documento && cliente.fechaNac == fechaNac) {
             encontrado = true;
+            clienteActual = cliente;
+        }
     });
 
     console.log("Encontrado: " + encontrado);
@@ -40,8 +58,8 @@ document.getElementById("continuar").addEventListener("click", () => {
             localStorage.setItem("documento", documento);
             localStorage.setItem("fechaNac", fechaNac);
         }
-        document.getElementById("pag-bienvenida").style.display = "none";
-        document.getElementById("pag-clave").style.display = "block";
+        pagBienvenida.style.display = "none";
+        pagPin.style.display = "block";
 
         //Insertar 3 números únicos entre 0 y 5
         let rNumsPin = [];
@@ -85,6 +103,21 @@ document.getElementById("continuar").addEventListener("click", () => {
                 celda.textContent = rNumsPinPad[i];
             }
         }
+        console.log("Pin: " + rNumsPin);
+        console.log("Pin-pad: " + rNumsPinPad);
+
+        let pin = [...(clienteActual.clave + "")];
+        console.log("Pin: " + pin);
+
+        let pinPad = document.getElementById("pin-pad");
+        let numeros = Array.from(pinPad.getElementsByTagName("td"));
+        let seleccionado = "";
+        numeros.forEach((numero) => {
+            numero.addEventListener("click", () => {
+                seleccionado = numero.innerText;
+                
+            });
+        });
     } else {
         let mensajeError = document.getElementById("mensaje-error");
         mensajeError.style.display = "block";
