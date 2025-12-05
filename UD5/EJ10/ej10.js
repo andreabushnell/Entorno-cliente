@@ -109,6 +109,8 @@ document.getElementById("continuar").addEventListener("click", () => {
         let pin = [...(clienteActual.clave + "")];
         console.log("Pin: " + pin);
 
+        let espacios = Array.from(document.getElementById('pin').getElementsByTagName("td"));
+
         let pinPad = document.getElementById("pin-pad");
         let numeros = Array.from(pinPad.getElementsByTagName("td"));
         let seleccionado = "";
