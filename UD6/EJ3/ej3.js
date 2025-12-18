@@ -1,9 +1,9 @@
 window.addEventListener("load", generarFormulario);
 
 class Disco {
-    constructor(nombre, autor, año, genero) {
+    constructor(nombre, artista, año, genero) {
         this.nombre = nombre;
-        this.autor = autor;
+        this.artista = artista;
         this.año = año;
         this.genero = genero;
     }
@@ -12,7 +12,7 @@ class Disco {
         return `    
     Nombre: ${this.nombre}
 
-    Artista: ${this.autor}
+    Artista: ${this.artista}
 
     Año de publicación: ${this.año}
 
@@ -35,15 +35,16 @@ function generarFormulario() {
     formulario.appendChild(crearInput("text", "artista"));
 
     formulario.appendChild(crearLabel("Año de publicación: ", "año"));
-    formulario.appendChild(crearInput("number", "año"));
+    formulario.appendChild(crearInput("text", "año"));
 
     formulario.appendChild(crearLabel("Género: ", "genero"));
     formulario.appendChild(crearSelect("genero", generos));
 
-    formulario.appendChild(crearBoton("Añadir"));
-
     body.appendChild(titulo);
     body.appendChild(formulario);
+    body.appendChild(crearBoton("Añadir"));
+
+    eventoFormulario();
 }
 
 function crearTitulo(texto) {
@@ -89,25 +90,78 @@ function crearBoton(texto) {
     return boton;
 }
 
-let formulario = document.getElementsByTagName("form")[0];
-let listaDiscos = [
-    new Disco("OK Computer", "Radiohead", 1997, "rock"),
-    new Disco("AM", "Arctic Monkeys", 2013, "indie"),
-    new Disco("Nevermind", "Nirvana", 1991, "punk"),
-];
-formulario.addEventListener("submit", (e) => {
-    e.preventDefault();
+function crearTabla(lista) {
+    let body = document.getElementsByTagName("body")[0];
+    let tabla = document.createElement("table");
 
-    let nombre = document.getElementById("nombre").value;
-    let artista = document.getElementById("artista").value;
-    let año = document.getElementById("año").value.toString();
-    let generos = document.getElementById("genero");
-    let seleccionado = "";
-    generos.forEach((genero) => {
-        if (genero.checked) {
-            seleccionado = genero;
-        }
+    let fila = document.createElement('tr');
+
+    let nombre = document.createElement('th');
+    nombre.textContent = 'Nombre';
+
+    let artista = document.createElement('th');
+    artista.textContent = 'Artista';
+
+    let año = document.createElement('th');
+    año.textContent = 'Año';
+
+    let genero = document.createElement('th');
+    genero.textContent = 'Género';
+
+    fila.append(nombre, artista, año, genero);
+    tabla.appendChild(fila);
+
+    lista.forEach((item) => {
+        let fila = document.createElement("tr");
+
+        let nombre = document.createElement("td");
+        let artista = document.createElement("td");
+        let año = document.createElement("td");
+        let genero = document.createElement("td");
+
+        nombre.textContent = item.nombre;
+        artista.textContent = item.artista;
+        año.textContent = item.año;
+        genero.textContent = item.genero;
+
+        fila.append(nombre, artista, año, genero);
+        tabla.appendChild(fila);
     });
 
-    
-});
+    body.appendChild(tabla);
+}
+
+let listaDiscos = [
+    new Disco("OK Computer", "Radiohead", "1997", "Rock"),
+    new Disco("AM", "Arctic Monkeys", "2013", "Indie"),
+    new Disco("Nevermind", "Nirvana", "1991", "Punk"),
+];
+
+function eventoFormulario(){
+    if (document.getElementsByTagName("button")[0] != undefined) {
+    document.getElementsByTagName("button")[0].addEventListener("click", () => {
+        let nombre = document.getElementById("nombre").value;
+        let artista = document.getElementById("artista").value;
+        let año = document.getElementById("año").value.toString();
+        let generos = Array.from(document.getElementById("genero").options);
+        let seleccionado = "";
+
+        generos.forEach((genero) => {
+            if (genero.selected) {
+                seleccionado = genero.value;
+            }
+        });
+
+        listaDiscos.push(new Disco(nombre, artista, año, seleccionado));
+
+        crearTabla(listaDiscos);
+    });
+} else {
+    alert("Formulario no encontrado");
+}
+}
+
+/*Ejemplos discos
+"Thriller", "Michael Jackson", "1982", "pop"
+"Back in Black", "AC/DC", "1980", "rock"
+*/
