@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+    <script src="ej5.js" defer></script>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .color1 { background-color: red; }
+        .color2 { background-color: blue; }
+        .color3 { background-color: green; }
+        .color4 { background-color: orange; }
+        .color5 { background-color: purple; }
+        .color6 { background-color: brown; }
+        ul{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+            padding: 5px;
+            margin: 5px;
+            color: white;
+            width: 50%;
+        }
+        .seleccionado{
+            border: 3px solid gray;
+        }
+        textarea{
+            width: 50%;
+            height: 100px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        button{
+            display: block;
+            margin-top: 10px;
+        }
+        #resultado{
+            margin-top: 20px;
+            color: white;
+        }
+        #resultado p{
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Introduce tu texto abajo: </h2>
+
+    <textarea placeholder="Escribe aquí..."></textarea>
+
+    <ul>
+        <li class="color1 seleccionado">Rojo</li>
+        <li class="color2">Azul</li>
+        <li class="color3">Verde</li>
+        <li class="color4">Naranja</li>
+        <li class="color5">Púrpura</li>
+        <li class="color6">Marrón</li>
+    </ul>
+
+    <button>Crear párrafo</button>
+
+    <div id="resultado">
+
+    </div>
+</body>
+</html>
