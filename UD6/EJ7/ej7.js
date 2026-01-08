@@ -26,6 +26,8 @@ let edificios = [
 
 let contador = 0;
 edificios.forEach((edificio) => {
+    let li = document.createElement('li');
+
     let opcion = document.createElement("option");
     opcion.value = edificio.direccion;
     opcion.innerHTML = edificio.direccion;
@@ -39,8 +41,11 @@ edificios.forEach((edificio) => {
     etiqueta.htmlFor= radio.id;
     etiqueta.textContent = edificio.direccion;
     
-    document.getElementById("lista-edificios-radios").appendChild(radio);
-    document.getElementById("lista-edificios-radios").appendChild(etiqueta);
+    li.appendChild(radio);
+    li.appendChild(etiqueta);
+
+    document.getElementById("lista-edificios-radios").appendChild(li);
+
     document.getElementById("select-edificios").append(opcion);
     contador++;
 });
