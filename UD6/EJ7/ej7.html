@@ -43,6 +43,10 @@
             width: 200px;
         }
 
+        input[type=radio] {
+            float: left;
+        }
+
         button {
             padding: 8px 15px;
             cursor: pointer;
@@ -62,6 +66,11 @@
             padding: 10px;
             max-height: 150px;
             overflow-y: auto;
+        }
+
+        #lista-edificios-radios label {
+            font-weight: normal;
+            float: left;
         }
 
         .radio-item {
@@ -94,12 +103,6 @@
         td:hover {
             background-color: #fff9c4;
         }
-
-        .edit-input {
-            width: 90%;
-            padding: 5px;
-            font-size: 14px;
-        }
     </style>
 </head>
 
@@ -128,7 +131,6 @@
         <h2>2. Modificar Propietario</h2>
         <p>Selecciona un edificio:</p>
         <div id="lista-edificios-radios">
-            <select id="lista-edificios"></select>
         </div>
 
         <div class="form-group">

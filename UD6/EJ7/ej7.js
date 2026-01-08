@@ -21,13 +21,28 @@ let edificios = [
     new Edificio("Avenida Libertad 5", 2, 2),
     new Edificio("Plaza España 10", 5, 3),
     new Edificio("Calle Pez 12", 1, 10),
-    new Edificio("Paseo del Prado 25", 4, 2)
+    new Edificio("Paseo del Prado 25", 4, 2),
 ];
+
+let contador = 0;
 edificios.forEach((edificio) => {
-    let opcion = document.createElement('option');
+    let opcion = document.createElement("option");
     opcion.value = edificio.direccion;
     opcion.innerHTML = edificio.direccion;
-    document.getElementById("lista-edificios").append(opcion);
+
+    let radio = document.createElement("input");
+    radio.type = "radio";
+    radio.name = "edificios";
+    radio.id = "radio"+contador;
+    radio.className = 'radio-item';
+    let etiqueta = document.createElement('label');
+    etiqueta.htmlFor= radio.id;
+    etiqueta.textContent = edificio.direccion;
+    
+    document.getElementById("lista-edificios-radios").appendChild(radio);
+    document.getElementById("lista-edificios-radios").appendChild(etiqueta);
+    document.getElementById("select-edificios").append(opcion);
+    contador++;
 });
 
 let propietarios = [
@@ -35,7 +50,7 @@ let propietarios = [
     new Propietario(edificios[0], 1, 2, "Luis Rodríguez"),
     new Propietario(edificios[1], 2, 1, "Marta Sánchez"),
     new Propietario(edificios[1], 2, 2, "Carlos Pérez"),
-    new Propietario(edificios[2], 1, 1, "Elena Martínez")
+    new Propietario(edificios[2], 1, 1, "Elena Martínez"),
 ];
 
 //RECUPERAR INPUTS
@@ -44,7 +59,7 @@ let nPlantas = document.getElementById("add-plantas");
 let puertasPorPlantas = document.getElementById("add-puertas");
 
 let listaEdificios = document.getElementById("lista-edificios");
-let nPlanta = document.getElementById("mod-plantas");
+let nPlanta = document.getElementById("mod-planta");
 let nPuerta = document.getElementById("mod-puerta");
 let nuevoPropietario = document.getElementById("mod-propietario");
 
@@ -67,23 +82,27 @@ añadirEdificio.addEventListener("click", () => {
 
 //MODIFICAR PROPIETARIO
 actualizarPropietario.addEventListener("click", () => {
-    var seleccionado;
-    Array.from(listaEdificios).forEach((edificio) => {
-        if (edificio.checked) {
-            console.log(edificio);
-            seleccionado = edificio;
-        } else {console.log(edificio);}
-    })
+    let seleccionado = new Edificio();
+    let opciones = Array.from(listaEdificios.options);
+    for (let i = 0; i < opciones.length; i++) {
+        if (opciones[i].selected) {
+            edificios.forEach((edificio) => {
+                if (edificio.direccion == opciones[i].value) {
+                    seleccionado = edificio;
+                }
+            });
+        }
+    }
 
     propietarios.forEach((propietario) => {
-        if (propietario.edificio == seleccionado && propietario.planta == nPlanta.value && propietario.puerta == nPuerta.value) {
-            console.log("inicial "+propietario);
+        if (
+            propietario.edificio === seleccionado &&
+            propietario.planta == nPlanta.value &&
+            propietario.puerta == nPuerta.value
+        ) {
             propietario.nombre = nuevoPropietario.value;
-            console.log("nuevo "+propietario);
         }
     });
-
-    
 });
 
 //MOSTRAR INFORMACION EDIFICIO
