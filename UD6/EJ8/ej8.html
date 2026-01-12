@@ -5,9 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 8</title>
     <script src="ej8.js" defer></script>
-    <style></style>
+    <style>
+        #galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.imagen-card {
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.imagen-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.btn-borrar {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-borrar:hover {
+    background: darkred;
+}
+    </style>
 </head>
 <body>
-    
+    <h2>Pulsa el botón para añadir una imagen a la galería</h2>
+    <div id="galeria"></div>
+    <label for="imagen">Añadir imagen</label>
+    <input type="file" id="imagen" accept="image/*">
 </body>
 </html>

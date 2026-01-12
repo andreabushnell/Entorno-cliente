@@ -92,7 +92,7 @@ function inicio() {
         new Propietario(edificios[3], 1, 3, "Nuria Campos"),
         new Propietario(edificios[3], 1, 5, "Fernando Ortega"),
         new Propietario(edificios[3], 1, 7, "Beatriz León"),
-        new Propietario(edificios[3], 1, 9, "Hugo Serrano"),
+        new Propietario(edificios[3], 1, 8, "Hugo Serrano"),
 
         new Propietario(edificios[4], 1, 1, "Silvia Méndez"),
         new Propietario(edificios[4], 1, 2, "Daniel Rojas"),
@@ -174,21 +174,23 @@ mostrarEdificio.addEventListener("click", () => {
 });
 
 function generarTablaEdificio(propietarios) {
-    document.getElementById("contenedor-tabla").removeChild[0];
-    let residentesPlanta = [];
+    document.getElementById("contenedor-tabla").innerHTML = "";
 
-    let columnas = propietarios[0].edificio.plantas;
-    let filas = propietarios[0].edificio.puertas;
+    let plantas = propietarios[0].edificio.plantas;
+    let puertas = propietarios[0].edificio.puertas;
     let tabla = document.createElement("table");
 
-    for (let i = 0; i < columnas; i++) {
+    for (let i = 0; i < plantas; i++) {
         let fila = document.createElement("tr");
+
         let nombrePlanta = document.createElement("th");
-        nombrePlanta.textContent = "Planta " + i;
+        nombrePlanta.textContent = "Planta " + (i + 1);
         fila.append(nombrePlanta);
 
+        let residentesPlanta = [];
+
         propietarios.forEach((propietario) => {
-            if (propietario.planta == i) {
+            if (propietario.planta == i + 1) {
                 residentesPlanta.push(propietario);
             }
         });
@@ -197,13 +199,19 @@ function generarTablaEdificio(propietarios) {
             residentesPlanta.sort((a, b) => a.puerta - b.puerta);
         }
 
-        console.log(residentesPlanta);
-        
-        for (let j = 0; j < filas; j++) {
+        for (let j = 0; j < puertas; j++) {
             let celda = document.createElement("td");
-            if (residentesPlanta[j].puerta == j && !undefined) {
-                celda.textContent = residentesPlanta[j].nombre;
+
+            let propietario = residentesPlanta.find((p) => p.puerta == j + 1);
+
+            if (propietario) {
+                celda.textContent = propietario.nombre;
+            } else {
+                celda.textContent = " ";
             }
+
+            celda.addEventListener("click", modificarPropietarioClick);
+
             fila.append(celda);
         }
 
@@ -211,4 +219,32 @@ function generarTablaEdificio(propietarios) {
     }
 
     document.getElementById("contenedor-tabla").append(tabla);
+}
+
+function modificarPropietarioClick() {
+    let nombre = this.innerHTML;
+    let encontrado = propietarios.find(
+        (propietario) => propietario.nombre == nombre
+    );
+
+    let cajaInput = document.createElement("input");
+    cajaInput.type = "text";
+
+    this.replaceWith(cajaInput);
+    cajaInput.addEventListener(
+        "keydown",
+        function modificarPropietarioEnter(e) {
+            if (e.key == "Enter") {
+                this.addEventListener;
+                let nuevoNombre = this.value;
+
+                encontrado.nombre = nuevoNombre;
+
+                let celda = document.createElement("td");
+                celda.textContent = nuevoNombre;
+                this.replaceWith(celda);
+            }
+        }
+    );
+
 }
