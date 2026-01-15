@@ -1,4 +1,4 @@
-import * as arrays from "../EJ1/arrays.js";
+import * as arrays from "../../../UD4/EJ1/arrays.js";
 
 class Disco {
     constructor(nombre, autor, año, genero) {
@@ -26,9 +26,20 @@ class Disco {
 }
 
 function mostrarNumDiscos() {
-    document.getElementById(
-        "mensaje-num-discos"
-    ).innerHTML = `Hay ${arrays.mostrarTamano(listado_discos)} discos`;
+    var xhr = new XMLHttpRequest();
+
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState == 4 && this.status == 200) {
+            let listado_discos = cargarXML(this);
+
+            document.getElementById(
+                "mensaje-num-discos"
+            ).innerHTML = `Hay ${arrays.mostrarTamano(listado_discos)} discos`;
+        }
+    });
+
+    xhr.open("GET", "discos.xml", true);
+    xhr.send();
 }
 function mostrarTablaDiscos() {
     document.getElementById("tabla-discos").innerHTML = "";
@@ -81,9 +92,11 @@ function añadirPrincipipo() {
     arrays.añadirPrincipio(
         listado_discos,
         new Disco(nombre, artista, año, genero)
-    );  
+    );
 
-    document.getElementById("mensaje-adicion").innerHTML = `Se ha añadido el disco ${nombre} al principio de la lista.`;
+    document.getElementById(
+        "mensaje-adicion"
+    ).innerHTML = `Se ha añadido el disco ${nombre} al principio de la lista.`;
 }
 function añadirFinal() {
     let nombre = document.getElementById("nombre-disco");
@@ -91,20 +104,23 @@ function añadirFinal() {
     let año = document.getElementById("año-disco");
     let genero = document.getElementById("genero-disco");
 
-    arrays.añadirFinal(
-        listado_discos,
-        new Disco(nombre, artista, año, genero)
-    );  
+    arrays.añadirFinal(listado_discos, new Disco(nombre, artista, año, genero));
 
-    document.getElementById("mensaje-adicion").innerHTML = `Se ha añadido el disco ${nombre} al final de la lista.`;
+    document.getElementById(
+        "mensaje-adicion"
+    ).innerHTML = `Se ha añadido el disco ${nombre} al final de la lista.`;
 }
 function eliminarPrincipio() {
     arrays.eliminarPrincipio(listado_discos);
-    document.getElementById("mensaje-eliminacion").innerHTML = `Se ha eliminado el primer disco de la lista.`;
+    document.getElementById(
+        "mensaje-eliminacion"
+    ).innerHTML = `Se ha eliminado el primer disco de la lista.`;
 }
 function eliminarFinal() {
     arrays.eliminarFinal(listado_discos);
-    document.getElementById("mensaje-eliminacion").innerHTML = `Se ha eliminado el último disco de la lista.`;
+    document.getElementById(
+        "mensaje-eliminacion"
+    ).innerHTML = `Se ha eliminado el último disco de la lista.`;
 }
 function consultarPosicion() {
     let posicion = document.getElementById("posicion").value;
@@ -137,19 +153,10 @@ function consultarNombre() {
 }
 
 //Cargar XML
-function cargarXML(xml){
+function cargarXML(xml) {
     var docXML = xml.responseXML;
-    var tabla = "<tr><th>Titulo</th><th>Autor</th><th>Año</th><th>Género</th></tr>";
-    var discos = docXML.querySelectorAll("disco");
-
-    for(var i=0; i<discos.length; i++){
-        tabla += "<tr><td>";
-        tabla += discos[i].querySelectorAll("nombre")[0].textContent;
-        tabla += discos[i].querySelectorAll("autor")[0].textContent;
-        tabla += discos[i].querySelectorAll("año")[0].textContent;
-        tabla += discos[i].querySelectorAll("genero")[0].textContent;
-        tabla += "</tr></td>";
-    }
+    var listado_discos = docXML.querySelectorAll("disco");
+    return listado_discos;
 }
 
 //Mostrar número de discos

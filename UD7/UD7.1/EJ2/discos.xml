@@ -26,3 +26,13 @@
         <genero>punk</genero>
     </disco>
 </listaDiscos>
+
+<!--var xhr = new XMLHttpRequest();
+xhr.addEventListener("readystatechange", function() {
+    if (this.readyState == 4 && this.status == 200) {
+        cargarXML(this);
+    }
+});
+
+xhr.open("GET", "discos.xml", true);
+xhr.send();-->
