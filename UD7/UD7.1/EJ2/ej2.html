@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="ej2.js" type="module"></script>
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <ol>
+        <li>Mostrar número de discos</li>
+        <button id="mostrar-nDiscos">Mostrar</button>
+        <p id="mensaje-num-discos"></p>
+
+        <li>Mostrar tabla de discos</li>
+        <input type="radio" name="orden" id="en-orden"> En orden
+        <input type="radio" name="orden" id="inverso"> En orden inverso
+        <input type="radio" name="orden" id="alfabetico"> En orden alfabético
+        <button id="mostrar-tablaDiscos">Mostrar</button>
+        <table hidden id="tabla-discos"></table>
+
+        <li>Mostrar discos por año</li>
+            Introduce un intervalo de años (formato fecha-fin): <input type="text" id="intervalo">
+            <button id="mostrar-intervalo">Mostrar</button>
+            <p id="mensaje-mostrar-intervalo"></p>
+        
+
+        <li>Añadir un disco</li>
+            Nombre: <input type="text" id="nombre-disco"><br>
+            Artista: <input type="text" id="artista-disco"><br>
+            Año: <input type="text" id="año-disco"><br>
+            Género: <input type="text" id="genero-disco"><br>
+            <button id="añadir-principio">Al principio</button>
+            <button id="añadir-final">Al final</button>
+            <p id="mensaje-adicion"></p>
+
+        <li>Eliminar un disco</li>
+        <button id="eliminar-principio">Al principio</button>
+        <button id="eliminar-final">Al final</button>
+        <p id="mensaje-eliminacion"></p>
+        <li>Consultar un disco</li>
+        <input type="text" id="posicion"><button id="consultar-posicion">Por posicion</button><br>
+        <input type="text" id="nombre"><button id="consultar-nombre">Por nombre</button>
+        <p id="mensaje-consulta"></p>
+    </ol>
+</body>
+
+</html>

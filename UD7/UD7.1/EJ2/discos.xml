@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<listaDiscos>
+    <disco>
+        <nombre>Thriller</nombre>
+        <autor>Michael Jackson</autor>
+        <año>1982</año>
+        <genero>pop</genero>
+    </disco>
+    <disco>
+        <nombre>Abbey Road</nombre>
+        <autor>The Beatles</autor>
+        <año>1969</año>
+        <genero>rock</genero>
+    </disco>
+    <disco>
+        <nombre>AM</nombre>
+        <autor>Arctic Monkeys</autor>
+        <año>2013</año>
+        <genero>indie</genero>
+    </disco>
+    <disco>
+        <nombre>Never Mind the Bollocks</nombre>
+        <autor>Sex Pistols</autor>
+        <año>1977</año>
+        <genero>punk</genero>
+    </disco>
+</listaDiscos>
