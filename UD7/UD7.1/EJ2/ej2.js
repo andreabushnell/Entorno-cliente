@@ -25,21 +25,26 @@ class Disco {
     }
 }
 
-function mostrarNumDiscos() {
-    var xhr = new XMLHttpRequest();
+var listado_discos = [];
 
+window.addEventListener('load', inicio);
+
+function inicio() {
+    var xhr = new XMLHttpRequest();
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState == 4 && this.status == 200) {
-            let listado_discos = cargarXML(this);
-
-            document.getElementById(
-                "mensaje-num-discos"
-            ).innerHTML = `Hay ${arrays.mostrarTamano(listado_discos)} discos`;
+            listado_discos = cargarXML(this);
         }
     });
 
     xhr.open("GET", "discos.xml", true);
     xhr.send();
+}
+
+function mostrarNumDiscos() {
+    document.getElementById(
+        "mensaje-num-discos"
+    ).innerHTML = `Hay ${arrays.mostrarTamano(listado_discos)} discos`;
 }
 function mostrarTablaDiscos() {
     document.getElementById("tabla-discos").innerHTML = "";
@@ -84,10 +89,10 @@ function mostrarIntervaloDiscos() {
     });
 }
 function añadirPrincipipo() {
-    let nombre = document.getElementById("nombre-disco");
-    let artista = document.getElementById("artista-disco");
-    let año = document.getElementById("año-disco");
-    let genero = document.getElementById("genero-disco");
+    let nombre = document.getElementById("nombre-disco").value;
+    let artista = document.getElementById("artista-disco").value;
+    let año = document.getElementById("año-disco").value;
+    let genero = document.getElementById("genero-disco").value;
 
     arrays.añadirPrincipio(
         listado_discos,
@@ -99,10 +104,10 @@ function añadirPrincipipo() {
     ).innerHTML = `Se ha añadido el disco ${nombre} al principio de la lista.`;
 }
 function añadirFinal() {
-    let nombre = document.getElementById("nombre-disco");
-    let artista = document.getElementById("artista-disco");
-    let año = document.getElementById("año-disco");
-    let genero = document.getElementById("genero-disco");
+    let nombre = document.getElementById("nombre-disco").value;
+    let artista = document.getElementById("artista-disco").value;
+    let año = document.getElementById("año-disco").value;
+    let genero = document.getElementById("genero-disco").value;
 
     arrays.añadirFinal(listado_discos, new Disco(nombre, artista, año, genero));
 
@@ -155,7 +160,18 @@ function consultarNombre() {
 //Cargar XML
 function cargarXML(xml) {
     var docXML = xml.responseXML;
-    var listado_discos = docXML.querySelectorAll("disco");
+    var discos = docXML.querySelectorAll("disco");
+    var listado_discos = [];
+
+    for (var i = 0; i < discos.length; i++) {
+        let nombre = discos[i].querySelectorAll("nombre")[0].textContent;
+        let autor = discos[i].querySelectorAll("autor")[0].textContent;
+        let año = discos[i].querySelectorAll("año")[0].textContent;
+        let genero = discos[i].querySelectorAll("genero")[0].textContent;
+
+        listado_discos.push(new Disco(nombre, autor, año, genero));
+    }
+
     return listado_discos;
 }
 
