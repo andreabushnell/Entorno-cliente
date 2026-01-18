@@ -1,0 +1,39 @@
+[
+    {
+        "Nombre": "Real Madrid",
+        "PJ": 20,
+        "PG": 14,
+        "PP": 3,
+        "PE": 3
+    },
+    {
+        "Nombre": "Barcelona",
+        "PJ": 20,
+        "PG": 13,
+        "PP": 4,
+        "PE": 3
+    },
+    {
+        "Nombre": "Manchester City",
+        "PJ": 20,
+        "PG": 15,
+        "PP": 2,
+        "PE": 3
+    },
+    {
+        "Nombre": "Bayern Munich",
+        "PJ": 20,
+        "PG": 16,
+        "PP": 1,
+        "PE": 3
+    },
+    {
+        "Nombre": "River Plate",
+        "PJ": 20,
+        "PG": 12,
+        "PP": 5,
+        "PE": 3
+    }
+]
+
+
