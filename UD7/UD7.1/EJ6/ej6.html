@@ -1,12 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 6</title>
     <script src="ej6.js" type="module"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background-color: #f4f6fb;
+            color: #1e293b;
+        }
+
+        header {
+            background-color: #1e3a8a;
+            padding: 15px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            color: #ffffff;
+        }
+
+        .controles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            padding: 15px;
+            background-color: #e0e7ff;
+        }
+
+        .grupo-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        select,
+        button {
+            padding: 6px 10px;
+            border-radius: 6px;
+            border: 1px solid #c7d2fe;
+            cursor: pointer;
+            background-color: #ffffff;
+        }
+
+        button {
+            background-color: #2563eb;
+            color: white;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #1d4ed8;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .contenedor-pilotos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .tarjeta-piloto {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s, border 0.2s;
+        }
+
+        .tarjeta-piloto:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .tarjeta-piloto h3 {
+            margin-top: 0;
+            color: #1e3a8a;
+        }
+
+        .tarjeta-piloto p {
+            margin: 4px 0;
+            font-size: 0.9rem;
+        }
+
+        .destacado {
+            border: 2px solid #16a34a;
+            box-shadow: 0 0 10px rgba(22, 163, 74, 0.5);
+            background-color: #f0fdf4;
+        }
+
+        .paginacion {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            background-color: #e0e7ff;
+        }
+    </style>
 </head>
+
 <body>
-    
+
+    <header>
+        <h1>Pilotos de Fórmula 1</h1>
+    </header>
+
+    <section class="controles">
+
+        <div class="grupo-control">
+            <label>Ordenar por:</label>
+            <select id="campoOrden">
+                <option value="nombre">Nombre</option>
+                <option value="equipo">Equipo</option>
+            </select>
+
+            <select id="tipoOrden">
+                <option value="asc">Ascendente</option>
+                <option value="desc">Descendente</option>
+            </select>
+        </div>
+
+        <div class="grupo-control">
+            <label>Nacionalidad:</label>
+            <select id="filtroNacionalidad">
+                <option value="todas">Todas</option>
+            </select>
+        </div>
+
+        <div class="grupo-control">
+            <button id="verTodos">Ver todos</button>
+        </div>
+
+    </section>
+
+    <main>
+        <div id="contenedorPilotos" class="contenedor-pilotos">
+        </div>
+    </main>
+
+    <footer class="paginacion">
+        <button id="paginaAnterior">Anterior</button>
+        <span id="infoPagina">Página 1</span>
+        <button id="paginaSiguiente">Siguiente</button>
+        <button id="mostrarTodosPilotos">Mostrar todos los pilotos</button>
+    </footer>
 </body>
+
 </html>

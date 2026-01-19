@@ -58,7 +58,7 @@ function mostrarTablaDiscos() {
     } else if (document.getElementById("alfabetico").checked) {
         lista = arrays.mostrarListadoAlfabetico(listado_discos);
     }
-
+    
     if (lista.length != 0) {
         document.getElementById("tabla-discos").style.display = "block";
 
@@ -163,6 +163,8 @@ function cargarXML(xml) {
     var discos = docXML.querySelectorAll("disco");
     var listado_discos = [];
 
+    
+
     for (var i = 0; i < discos.length; i++) {
         let nombre = discos[i].querySelectorAll("nombre")[0].textContent;
         let autor = discos[i].querySelectorAll("autor")[0].textContent;
@@ -170,8 +172,10 @@ function cargarXML(xml) {
         let genero = discos[i].querySelectorAll("genero")[0].textContent;
 
         listado_discos.push(new Disco(nombre, autor, año, genero));
+        
     }
 
+    console.log(listado_discos);
     return listado_discos;
 }
 

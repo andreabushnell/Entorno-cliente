@@ -7,10 +7,28 @@
       "nacionalidad": "Reino Unido"
     },
     {
+      "nombre": "George Russell",
+      "equipo": "Mercedes",
+      "numero": 63,
+      "nacionalidad": "Reino Unido"
+    },
+    {
+      "nombre": "Lando Norris",
+      "equipo": "McLaren",
+      "numero": 4,
+      "nacionalidad": "Reino Unido"
+    },
+    {
       "nombre": "Max Verstappen",
       "equipo": "Red Bull Racing",
       "numero": 33,
       "nacionalidad": "Países Bajos"
+    },
+    {
+      "nombre": "Sergio Pérez",
+      "equipo": "Red Bull Racing",
+      "numero": 11,
+      "nacionalidad": "México"
     },
     {
       "nombre": "Charles Leclerc",
@@ -19,10 +37,40 @@
       "nacionalidad": "Mónaco"
     },
     {
+      "nombre": "Carlos Sainz",
+      "equipo": "Ferrari",
+      "numero": 55,
+      "nacionalidad": "España"
+    },
+    {
       "nombre": "Fernando Alonso",
       "equipo": "Aston Martin",
       "numero": 14,
       "nacionalidad": "España"
+    },
+    {
+      "nombre": "Esteban Ocon",
+      "equipo": "Alpine",
+      "numero": 31,
+      "nacionalidad": "Francia"
+    },
+    {
+      "nombre": "Pierre Gasly",
+      "equipo": "Alpine",
+      "numero": 10,
+      "nacionalidad": "Francia"
+    },
+    {
+      "nombre": "Valtteri Bottas",
+      "equipo": "Kick Sauber",
+      "numero": 77,
+      "nacionalidad": "Finlandia"
+    },
+    {
+      "nombre": "Sebastian Vettel",
+      "equipo": "Retirado",
+      "numero": 5,
+      "nacionalidad": "Alemania"
     }
   ]
 }
