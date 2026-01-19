@@ -5,7 +5,7 @@ const pilotosPorPagina = 3;
 window.addEventListener("load", inicio);
 
 function inicio() {
-    let xhr = new XMLHttpRequest();
+    /*let xhr = new XMLHttpRequest();
 
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -15,7 +15,18 @@ function inicio() {
     });
 
     xhr.open("GET", "pilotos.json", true);
-    xhr.send();
+    xhr.send();*/
+    
+
+    fetch("pilotos.json")
+    .then(respuesta => respuesta.json())
+    .then(datos => {
+        let pilotos = datos.pilotos;
+        pilotos.forEach((piloto) => {
+            listaPilotos.push(piloto);
+        });
+    })
+    .catch(error => console.log(error.message));
 }
 
 //Recuperar botones
