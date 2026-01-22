@@ -1,0 +1,7 @@
+.tareaTexto {
+  text-decoration: none;
+}
+
+.tareaRealizada {
+  text-decoration: line-through;
+}
