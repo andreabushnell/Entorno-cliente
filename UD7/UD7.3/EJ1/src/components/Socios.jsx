@@ -1,36 +1,148 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 function Socios() {
-    let socios = fetch('').then(res => res.text()).then(y => JSON.parse(y));
+    //Listado general
+    const [socios, setSocios] = useState([]);
+    const [filtradosActividad, setFiltradosActividad] = useState([]);
+    const [filtradosEdad, setFiltradosEdad] = useState([]);
+    const [filtradosNivel, setFiltradosNivel] = useState([]);
 
-    const[todos, setSocios] = useState(socios);
-    const[filtrados, setFiltrados] = useState(socios);
+    //Obtener datos iniciales de socios.json
+    useEffect(() => {
+        fetch("/socios.json")
+            .then((res) => res.json())
+            .then((datos) => setSocios(datos))
+            .catch((err) => console.error(err));
+    }, []);
 
-    function filtrarEdad(e){
-        const sociosFiltrados = todos.filter(socio => socio.edad >= e.target.value);
-        setFiltrados(sociosFiltrados);
+    function filtrarActividad(e) {
+        let resultado = [];
+        if (e.target.value == "Todos") {
+            resultado = socios;
+        } else {
+            resultado = socios.filter(
+                (socio) => socio.Actividad == e.target.value,
+            );
+        }
+        setFiltradosActividad(resultado);
     }
 
-    function filtrarActividad(e){
-        const sociosFiltrados = todos.filter(socio => socio.actividad === e.target.value);
-        setFiltrados(sociosFiltrados);
+    function filtrarEdad(e) {
+        let resultado = socios.filter((socio) => socio.Edad <= e.target.value);
+        setFiltradosEdad(resultado);
     }
 
-    return(
-        <div>
+    function filtrarNivel(e) {
+        let resultado = socios.filter((socio) => socio.Nivel == e.target.value);
+        setFiltradosNivel(resultado);
+    }
+
+    function mostrarTodos() {
+        return (
             <table border="1">
-                {filtrados.map(socio => (
-                    <tr key={socio.nombre}>
-                        <td>{socio.nombre}</td>
-                        <td>{socio.edad}</td>
-                    </tr>
-                ))}
+                <tbody>
+                    {socios.map((socio) => (
+                        <tr key={socio.Nombre}>
+                            <td>{socio.Nombre}</td>
+                            <td>{socio.Actividad}</td>
+                            <td>{socio.Edad}</td>
+                            <td>{socio.Nivel}</td>
+                        </tr>
+                    ))}
+                </tbody>
             </table>
-            <select value='Selecciona' onChange={filtrarActividad}>
+        );
+    }
 
-            </select>
+    return (
+        <div>
+            <div>
+                <select onChange={filtrarActividad}>
+                    <option value="Yoga">Yoga</option>
+                    <option value="Crossfit">Crossfit</option>
+                    <option value="Natación">Natación</option>
+                    <option value="Tenis">Tenis</option>
+                </select>
+
+                <button onClick={mostrarTodos}>Todos</button>
             </div>
-    )
+
+            <div>
+                <input
+                    onChange={filtrarEdad}
+                    type="number"
+                    placeholder="Introduce una edad..."
+                />
+            </div>
+
+            <div>
+                <label>
+                    <input type="radio" name="nivel" value="principiante" />
+                    Principiante
+                </label>
+                <label>
+                    <input type="radio" name="nivel" value="intermedio" />
+                    Intermedio
+                </label>
+                <label>
+                    <input type="radio" name="nivel" value="avanzado" />
+                    Avanzado
+                </label>
+            </div>
+
+            <table border="1">
+                <tbody>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Actividad</th>
+                        <th>Edad</th>
+                        <th>Nivel</th>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table border="1">
+                <tbody>
+                    {filtradosActividad.map((socio) => (
+                        <tr key={socio.Nombre}>
+                            <td>{socio.Nombre}</td>
+                            <td>{socio.Actividad}</td>
+                            <td>{socio.Edad}</td>
+                            <td>{socio.Nivel}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+
+            <table border="1">
+                <tbody>
+                    {filtradosEdad.map((socio) => (
+                        <tr key={socio.Nombre}>
+                            <td>{socio.Nombre}</td>
+                            <td>{socio.Actividad}</td>
+                            <td>{socio.Edad}</td>
+                            <td>{socio.Nivel}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+
+            <table border="1">
+                <tbody>
+                    {filtradosNivel.map((socio) => (
+                        <tr key={socio.Nombre}>
+                            <td>{socio.Nombre}</td>
+                            <td>{socio.Actividad}</td>
+                            <td>{socio.Edad}</td>
+                            <td>{socio.Nivel}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    );
 }
 
 export default Socios;
+
+//Examen: formulario con y sin UseState. useState, useEffect, useStateAction

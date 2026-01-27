@@ -1,0 +1,46 @@
+[
+    {
+        "Nombre": "Elena",
+        "Actividad": "Yoga",
+        "Edad": 28,
+        "Nivel": "Avanzado"
+    },
+    {
+        "Nombre": "Marcos",
+        "Actividad": "Crossfit",
+        "Edad": 34,
+        "Nivel": "Principiante"
+    },
+    {
+        "Nombre": "Silvia",
+        "Actividad": "Natación",
+        "Edad": 42,
+        "Nivel": "Intermedio"
+    },
+    {
+        "Nombre": "Ricardo",
+        "Actividad": "Yoga",
+        "Edad": 55,
+        "Nivel": "Intermedio"
+    },
+    {
+        "Nombre": "Beatriz",
+        "Actividad": "Crossfit",
+        "Edad": 22,
+        "Nivel": "Avanzado"
+    },
+    {
+        "Nombre": "Roberto",
+        "Actividad": "Natación",
+        "Edad": 30,
+        "Nivel": "Principiante"
+    },
+    {
+        "Nombre": "Clara",
+        "Actividad": "Tenis",
+        "Edad": 19,
+        "Nivel": "Avanzado"
+    }
+]
+
+
